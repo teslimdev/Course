@@ -143,7 +143,9 @@ svg {
 .section-subtitle span {
     color: var(--first-color);
 }
-
+.contact-message{
+    margin-left: 20px;
+}
 .main {
     overflow: hidden;
     /* For animation ScrollReveal */

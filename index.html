@@ -3,27 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <script
-      src="https://kit.fontawesome.com/160be03552.js"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/160be03552.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/assets/css/style.css" />
-    <link
-      rel="shortcut icon"
-      href="assets/img/favicon/favicon.ico"
-      type="image/x-icon"
-    />
-
-    <!--=============== REMIXICONS ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <title>Document</title>
+    <link rel="shortcut icon" href="assets/img/favicon/favicon.ico" type="image/x-icon" />
+    
+    <!-- REMIXICONS -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet" />
+    
+    <!-- emailjs library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+      emailjs.init("oeczAqi6w0uttZPIh");
+    </script>
+    
+    <title>Your Page Title</title>
   </head>
   <body>
     <header id="header" class="header">
@@ -406,9 +400,12 @@
         <h2 class="section-title">Contact Me</h2>
 
         <div class="contact-container container grid">
-          <form action="" class="contact-form" id="contact-form">
+          <form action="" class="contact-form" 
+           id="contactForm"
+              onsubmit="SendMail(); return false;">
             <div class="contact-group">
               <input
+                id="user_name"
                 type="text"
                 required
                 autocomplete="off"
@@ -417,6 +414,7 @@
                 class="contact-input"
               />
               <input
+                id="user_email"
                 type="email"
                 required
                 autocomplete="off"
@@ -427,7 +425,8 @@
             </div>
 
             <textarea
-              name="user_project"
+         name="message"
+           id="message"
               autocomplete="off"
               required
               placeholder="Enter your message"
