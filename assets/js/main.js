@@ -72,33 +72,39 @@ contactForm.addEventListener("submit", sendEmail);
 const scrollUp = () => {
     const scrollUp = document.getElementById("scroll-up");
     // when the scroll is higher than 350 vh, add the show-scroll class to the header tag
-    this.scrollY >= 350
+    window.scrollY >= 350
         ? scrollUp.classList.add("show-scroll")
         : scrollUp.classList.remove("show-scroll");
 };
+
 window.addEventListener("scroll", scrollUp);
+
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-menu a");
+
 const scrollActive = () => {
     const scrollY = window.pageYOffset;
 
-    sections.forEach((currentSection) => {
+    sections.forEach((currentSection, index) => {
         const sectionHeight = currentSection.offsetHeight;
         const sectionTop = currentSection.offsetTop - 58;
         const sectionId = currentSection.getAttribute("id");
-        // const sectionsClass = document.querySelector('.nav__menu a[href*='+sectionId +']')
-        const sectionsClass = document.querySelector(
-            `.nav-menu a[href*='${sectionId}']`
-        );
+        const sectionsClass = document.querySelector(`.nav-menu a[href="#${sectionId}"]`);
 
         if (scrollY > sectionTop && scrollY < sectionTop + sectionHeight) {
-            sectionsClass.classList.add("active-link");
-        } else {
-            sectionsClass.classList.remove("active-link");
+            navLinks.forEach((link) => link.classList.remove("active-link"));
+            if (sectionsClass) {
+                sectionsClass.classList.add("active-link");
+            }
         }
     });
 };
+
 window.addEventListener("scroll", scrollActive);
+
+
+
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({
     origin: "top",
