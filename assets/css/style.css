@@ -315,6 +315,7 @@ svg {
 
 .home-image {
     justify-self: center;
+   
 }
 
 .home-blob {
@@ -486,7 +487,7 @@ svg {
 .projects-modal{
     width: 100%;
         height: 0;
-        background: linear-gradient(rgba(0, 0, 0, 0.6), #222222);
+        background: linear-gradient(rgba(0, 0, 0, 0.6), hsl(228, 15%, 20%));
         border-radius: 10px;
         position:absolute ;
         left: 0;
@@ -542,6 +543,26 @@ svg {
     bottom: 0;
 }
 
+.projects-card img{
+    height: 260px;
+}
+.btn {
+    display: block;
+    margin: 40px auto;
+    width: fit-content;
+    border: 1px solid white;
+    background: none;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    transition: 0.5s;
+  
+}
+.btn:hover {
+    background: white;
+    color: black;
+    box-shadow: none;
+}
 /*=============== CONTACT ===============*/
 .contact-container {
     padding-top: 1rem;
